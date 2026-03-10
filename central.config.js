@@ -7059,7 +7059,9 @@ document.getElementById("__vauthors").textContent = "by " + item.author;
         const html = await res.text();
         const base = item.url.substring(0, item.url.lastIndexOf("/") + 1);
         const gaSnippet = "<script async src=\"https://www.googletagmanager.com/gtag/js?id=" + GA_ID + "\"><\/script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','" + GA_ID + "');<\/script>";
-        const patched = html.replace(/<head[^>]*>/i, "$&<base href=\"" + base + "\">" + gaSnippet);
+        let patched = html.replace(/<head[^>]*>/i, "$&<base href=\"" + base + "\">" + gaSnippet);
+patched = patched.replace(/<div\s+id="sidebarad1"[\s\S]*?<\/div>\s*<\/div>/gi, "");
+patched = patched.replace(/<div\s+id="sidebarad2"[\s\S]*?<\/div>\s*<\/div>/gi, "");
         const blob = new Blob([patched], { type: "text/html" });
         currentBlobUrl = URL.createObjectURL(blob);
         iframe.onload = () => {
