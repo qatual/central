@@ -6910,7 +6910,6 @@
 
       .viewer-frame-wrap {
         position: relative; overflow: hidden;
-        background: #000;
       }
       .viewer-frame-wrap iframe {
         position: absolute; inset: 0;
