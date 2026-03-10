@@ -6677,7 +6677,18 @@
   const APPS = [
 { id:0, name:'ExtHang3r', cover:'https://cdn.jsdelivr.net/gh/qatual/apps/exthang3r.png', url:'https://cdn.jsdelivr.net/gh/qatual/apps/ext.html', author:'BlobbyBoi', authorLink:'' },
 { id:1, name:'gdg',       cover:'https://cdn.jsdelivr.net/gh/qatual/apps/gdg.png',       url:'https://cdn.jsdelivr.net/gh/qatual/apps/gdg.html', author:'bog',      authorLink:'' },  ];
-
+  {
+    "id": 2,
+    "name": "Chat Bot (A.|.I)",
+    "cover": "https://cdn.jsdelivr.net/gh/gn-math/covers//253.png",
+    "url": "https://cdn.jsdelivr.net/gh/1qatu/aerogel/index.html",
+    "author": "bog",
+    "authorLink": "https://truffled.lol",
+    "featured": true,
+    "special": [
+      "tools"
+    ]
+  },
   const GA_ID = "G-5FWZW2LG6R";
 
   function injectGA(doc) {
