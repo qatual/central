@@ -6677,6 +6677,7 @@
   const APPS = [
     { id:0, name:'ExtHang3r', cover:'https://cdn.jsdelivr.net/gh/qatual/apps/exthang3r.png', url:'https://cdn.jsdelivr.net/gh/qatual/apps/ext.html', authors:['BlobbyBoi'] },
     { id:1, name:'gdg',       cover:'https://cdn.jsdelivr.net/gh/qatual/apps/gdg.png',       url:'https://cdn.jsdelivr.net/gh/qatual/apps/gdg.html', authors:['bog'] },
+        { id:2, name:'Verdant ( AI )',       cover:'https://cdn.jsdelivr.net/gh/1qatu/verdant/logo.png',       url:'https://cdn.jsdelivr.net/gh/1qatu/verdent/index.html', authors:['qatual'] },
   ];
 
   const GA_ID = "G-5FWZW2LG6R";
@@ -7049,10 +7050,26 @@
     `;
     document.body.appendChild(viewer);
 
-    const searchPage = document.createElement("div");
-    searchPage.id = "__page-search";
-    searchPage.innerHTML = '<iframe src="https://cdn.jsdelivr.net/gh/dinguschan-owo/Helios/index.html" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"></iframe>';
-    document.body.appendChild(searchPage);
+   const searchPage = document.createElement("div");
+searchPage.id = "__page-search";
+searchPage.innerHTML = '<iframe id="__search-iframe" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-popups allow-modals allow-downloads"></iframe>';
+document.body.appendChild(searchPage);
+
+let searchBlobUrl = null;
+(async () => {
+  try {
+    const res = await fetch("https://cdn.jsdelivr.net/gh/dinguschan-owo/Helios/index.html?_t=" + Date.now());
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const html = await res.text();
+    const base = "https://cdn.jsdelivr.net/gh/dinguschan-owo/Helios/";
+    const patched = html.replace(/<head[^>]*>/i, "$&<base href=\"" + base + "\">");
+    const blob = new Blob([patched], { type: "text/html" });
+    searchBlobUrl = URL.createObjectURL(blob);
+    document.getElementById("__search-iframe").src = searchBlobUrl;
+  } catch(err) {
+    searchPage.innerHTML = "<div style='color:#d95555;padding:20px'>boi it didnt load</div>";
+  }
+})();
 
 
     let currentBlobUrl = null;
