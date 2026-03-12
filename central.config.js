@@ -6677,7 +6677,7 @@
   const APPS = [
     { id:0, name:'ExtHang3r', cover:'https://cdn.jsdelivr.net/gh/qatual/apps/exthang3r.png', url:'https://cdn.jsdelivr.net/gh/qatual/apps/ext.html', authors:['BlobbyBoi'] },
     { id:1, name:'gdg',       cover:'https://cdn.jsdelivr.net/gh/qatual/apps/gdg.png',       url:'https://cdn.jsdelivr.net/gh/qatual/apps/gdg.html', authors:['bog'] },
-        { id:2, name:'Verdant ( AI )',       cover:'https://cdn.jsdelivr.net/gh/1qatu/verdant/logo.png',       url:'https://cdn.jsdelivr.net/gh/1qatu/verdent/index.html', authors:['qatual'] },
+        { id:2, name:'Verdant ( AI )',       cover:'https://cdn.jsdelivr.net/gh/1qatu/verdant/logo.png',       url:'https://cdn.jsdelivr.net/gh/1qatu/verdant/index.html', authors:['qatual'] },
   ];
 
   const GA_ID = "G-5FWZW2LG6R";
