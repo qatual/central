@@ -7058,10 +7058,10 @@ document.body.appendChild(searchPage);
 let searchBlobUrl = null;
 (async () => {
   try {
-    const res = await fetch("https://cdn.jsdelivr.net/gh/qatual/helious/index.html?_t=" + Date.now());
+    const res = await fetch("https://cdn.jsdelivr.net/gh/dinguschan-owo/Helios/index.html?_t=" + Date.now());
     if (!res.ok) throw new Error("HTTP " + res.status);
     const html = await res.text();
-    const base = "https://cdn.jsdelivr.net/gh/qatual/helious/";
+    const base = "https://cdn.jsdelivr.net/gh/dinguschan-owo/Helios/";
     const patched = html.replace(/<head[^>]*>/i, "$&<base href=\"" + base + "\">");
     const blob = new Blob([patched], { type: "text/html" });
     searchBlobUrl = URL.createObjectURL(blob);
