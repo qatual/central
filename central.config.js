@@ -6679,9 +6679,9 @@
 { id:1, name:'gdg',       cover:'https://cdn.jsdelivr.net/gh/qatual/apps/gdg.png',       url:'https://cdn.jsdelivr.net/gh/qatual/apps/gdg.html', author:'bog',      authorLink:'' },  
   {
     "id": 2,
-    "name": "Chat Bot (A.|.I)",
-    "cover": "https://cdn.jsdelivr.net/gh/gn-math/covers//253.png",
-    "url": "https://cdn.jsdelivr.net/gh/1qatu/aerogel/index.html",
+    "name": "Verdent ( AI )",
+    "cover": "https://cdn.jsdelivr.net/gh/1qatu/verdant/logo.png",
+    "url": "https://cdn.jsdelivr.net/gh/1qatu/verdant/index.html",
     "author": "bog",
     "authorLink": "https://truffled.lol",
     "featured": true,
