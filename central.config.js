@@ -6675,21 +6675,10 @@
   }  ];
 
   const APPS = [
-{ id:0, name:'ExtHang3r', cover:'https://cdn.jsdelivr.net/gh/qatual/apps/exthang3r.png', url:'https://cdn.jsdelivr.net/gh/qatual/apps/ext.html', author:'BlobbyBoi', authorLink:'' },
-{ id:1, name:'gdg',       cover:'https://cdn.jsdelivr.net/gh/qatual/apps/gdg.png',       url:'https://cdn.jsdelivr.net/gh/qatual/apps/gdg.html', author:'bog',      authorLink:'' },  
-  {
-    "id": 2,
-    "name": "Verdent ( AI )",
-    "cover": "https://cdn.jsdelivr.net/gh/1qatu/verdant/logo.png",
-    "url": "https://cdn.jsdelivr.net/gh/1qatu/verdant/index.html",
-    "author": "solo central",
-    "authorLink": "https://solocentral.org",
-    "featured": true,
-    "special": [
-      "tools"
-    ]
-  }
-    ];
+    { id:0, name:'ExtHang3r', cover:'https://cdn.jsdelivr.net/gh/qatual/apps/exthang3r.png', url:'https://cdn.jsdelivr.net/gh/qatual/apps/ext.html', authors:['BlobbyBoi'] },
+    { id:1, name:'gdg',       cover:'https://cdn.jsdelivr.net/gh/qatual/apps/gdg.png',       url:'https://cdn.jsdelivr.net/gh/qatual/apps/gdg.html', authors:['bog'] },
+  ];
+
   const GA_ID = "G-5FWZW2LG6R";
 
   function injectGA(doc) {
@@ -6922,6 +6911,7 @@
 
       .viewer-frame-wrap {
         position: relative; overflow: hidden;
+        background: #000;
       }
       .viewer-frame-wrap iframe {
         position: absolute; inset: 0;
@@ -6947,6 +6937,18 @@
       }
       @keyframes spin { to { transform: rotate(360deg); } }
       .viewer-error { color: #d95555; display: flex; align-items: center; gap: 8px; }
+
+
+
+      #__page-search {
+        position: fixed; inset: 0; z-index: 5;
+        display: none; padding-top: 50px;
+      }
+      #__page-search.visible { display: block; }
+      #__page-search iframe {
+        width: 100%; height: 100%;
+        border: none; display: block;
+      }
     `;
     document.head.appendChild(style);
 
@@ -6971,8 +6973,9 @@
     nav.innerHTML = `
       <a class="logo" href="/" id="__logo">solo central</a>
       <div class="right">
-        <a class="nav-item" id="nav-games" href="#games"><i class="fa-solid fa-gamepad"></i> Games</a>
-        <a class="nav-item" id="nav-apps"  href="#apps"><i class="fa-solid fa-grip"></i> Apps</a>
+        <a class="nav-item" id="nav-games"  href="#games"><i class="fa-solid fa-gamepad"></i> Games</a>
+        <a class="nav-item" id="nav-apps"   href="#apps"><i class="fa-solid fa-grip"></i> Apps</a>
+        <a class="nav-item" id="nav-search" href="#search"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
       </div>
     `;
     document.body.appendChild(nav);
@@ -7046,13 +7049,20 @@
     `;
     document.body.appendChild(viewer);
 
+    const searchPage = document.createElement("div");
+    searchPage.id = "__page-search";
+    searchPage.innerHTML = '<iframe src="https://cdn.jsdelivr.net/gh/dinguschan-owo/Helios/index.html" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"></iframe>';
+    document.body.appendChild(searchPage);
+
+
     let currentBlobUrl = null;
     let viewerReturnPage = null;
 
     async function openItem(item, returnPage) {
       viewerReturnPage = returnPage;
       document.getElementById("__vtitle").textContent = item.name;
-document.getElementById("__vauthors").textContent = "by " + item.author;
+      document.getElementById("__vauthors").textContent = "by " + (item.author || (item.authors ? item.authors.join(", ") : ""));
+
       const iframe = document.getElementById("__iframe");
       iframe.classList.remove("loaded");
       const loading = document.getElementById("__vloading");
@@ -7070,9 +7080,7 @@ document.getElementById("__vauthors").textContent = "by " + item.author;
         const html = await res.text();
         const base = item.url.substring(0, item.url.lastIndexOf("/") + 1);
         const gaSnippet = "<script async src=\"https://www.googletagmanager.com/gtag/js?id=" + GA_ID + "\"><\/script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','" + GA_ID + "');<\/script>";
-        let patched = html.replace(/<head[^>]*>/i, "$&<base href=\"" + base + "\">" + gaSnippet);
-patched = patched.replace(/<div\s+id="sidebarad1"[\s\S]*?<\/div>\s*<\/div>/gi, "");
-patched = patched.replace(/<div\s+id="sidebarad2"[\s\S]*?<\/div>\s*<\/div>/gi, "");
+        const patched = html.replace(/<head[^>]*>/i, "$&<base href=\"" + base + "\">" + gaSnippet);
         const blob = new Blob([patched], { type: "text/html" });
         currentBlobUrl = URL.createObjectURL(blob);
         iframe.onload = () => {
@@ -7133,18 +7141,22 @@ patched = patched.replace(/<div\s+id="sidebarad2"[\s\S]*?<\/div>\s*<\/div>/gi, "
       home.style.display = "flex";
       gamesPage.classList.remove("visible");
       appsPage.classList.remove("visible");
+      searchPage.classList.remove("visible");
       viewer.classList.remove("visible");
       document.getElementById("nav-games").classList.remove("active");
       document.getElementById("nav-apps").classList.remove("active");
+      document.getElementById("nav-search").classList.remove("active");
     }
 
     function showGames() {
       home.style.display = "none";
       viewer.classList.remove("visible");
       appsPage.classList.remove("visible");
+      searchPage.classList.remove("visible");
       gamesPage.classList.add("visible");
       document.getElementById("nav-games").classList.add("active");
       document.getElementById("nav-apps").classList.remove("active");
+      document.getElementById("nav-search").classList.remove("active");
       renderGrid(GAMES, "__grid-games", "games");
     }
 
@@ -7152,17 +7164,33 @@ patched = patched.replace(/<div\s+id="sidebarad2"[\s\S]*?<\/div>\s*<\/div>/gi, "
       home.style.display = "none";
       viewer.classList.remove("visible");
       gamesPage.classList.remove("visible");
+      searchPage.classList.remove("visible");
       appsPage.classList.add("visible");
       document.getElementById("nav-apps").classList.add("active");
       document.getElementById("nav-games").classList.remove("active");
+      document.getElementById("nav-search").classList.remove("active");
       renderGrid(APPS, "__grid-apps", "apps");
+    }
+
+
+
+    function showSearch() {
+      home.style.display = "none";
+      viewer.classList.remove("visible");
+      gamesPage.classList.remove("visible");
+      appsPage.classList.remove("visible");
+      searchPage.classList.add("visible");
+      document.getElementById("nav-search").classList.add("active");
+      document.getElementById("nav-games").classList.remove("active");
+      document.getElementById("nav-apps").classList.remove("active");
     }
 
     document.getElementById("__search-games").addEventListener("input", () => renderGrid(GAMES, "__grid-games", "games"));
     document.getElementById("__search-apps").addEventListener("input",  () => renderGrid(APPS,  "__grid-apps",  "apps"));
-    document.getElementById("nav-games").addEventListener("click", e => { e.preventDefault(); history.pushState({}, "", "#games"); showGames(); });
-    document.getElementById("nav-apps").addEventListener("click",  e => { e.preventDefault(); history.pushState({}, "", "#apps");  showApps(); });
-    document.getElementById("__logo").addEventListener("click",    e => { e.preventDefault(); history.pushState({}, "", "/");      showHome(); });
+    document.getElementById("nav-games").addEventListener("click",  e => { e.preventDefault(); history.pushState({}, "", "#games");  showGames(); });
+    document.getElementById("nav-apps").addEventListener("click",   e => { e.preventDefault(); history.pushState({}, "", "#apps");   showApps(); });
+    document.getElementById("nav-search").addEventListener("click", e => { e.preventDefault(); history.pushState({}, "", "#search"); showSearch(); });
+    document.getElementById("__logo").addEventListener("click",     e => { e.preventDefault(); history.pushState({}, "", "/");       showHome(); });
     document.addEventListener("keydown", e => { if (e.key === "Escape" && viewer.classList.contains("visible")) closeViewer(); });
 
     window.addEventListener("popstate", () => {
@@ -7170,12 +7198,14 @@ patched = patched.replace(/<div\s+id="sidebarad2"[\s\S]*?<\/div>\s*<\/div>/gi, "
       if (h.startsWith("#game-") || h.startsWith("#app-")) return;
       if (h === "#games") showGames();
       else if (h === "#apps") showApps();
+      else if (h === "#search") showSearch();
       else showHome();
     });
 
     const h = location.hash;
     if (h === "#apps") showApps();
     else if (h === "#games") showGames();
+    else if (h === "#search") showSearch();
     else showHome();
   }
 
