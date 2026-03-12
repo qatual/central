@@ -6682,8 +6682,8 @@
     "name": "Verdent ( AI )",
     "cover": "https://cdn.jsdelivr.net/gh/1qatu/verdant/logo.png",
     "url": "https://cdn.jsdelivr.net/gh/1qatu/verdant/index.html",
-    "author": "bog",
-    "authorLink": "https://truffled.lol",
+    "author": "solo central",
+    "authorLink": "https://solocentral.org",
     "featured": true,
     "special": [
       "tools"
