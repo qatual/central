@@ -1,3 +1,10 @@
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+// main config for solo central
+// this is the entire function of the site 
+// solocentral.org
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 (function () {
 
   const GAMES = [
