@@ -7054,7 +7054,8 @@
       }).catch(() => {});
     }
     fetchUsers();
-    setInterval(fetchUsers, 1000);
+    // note from qatual: this fetches hecka fast and i hope it doesnt nuke my vps
+    setInterval(fetchUsers, 1);
  
     const home = document.createElement("div");
     home.id = "__home";
