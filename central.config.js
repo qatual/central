@@ -6679,7 +6679,7 @@
     "special": [
       "port"
     ]
-  }  ];
+  }];
 
   const APPS = [
     { id:0, name:'ExtHang3r', cover:'https://cdn.jsdelivr.net/gh/qatual/apps/exthang3r.png', url:'https://cdn.jsdelivr.net/gh/qatual/apps/ext.html', authors:['BlobbyBoi'] },
@@ -6783,6 +6783,15 @@
         transition: transform .18s cubic-bezier(.4,0,.2,1);
       }
       #__nav .logo:hover { transform: scale(1.08); }
+
+      #__nav .center {
+        position: absolute; left: 50%; transform: translateX(-50%);
+        font-size: 0.72rem; font-weight: 500;
+        color: #333; letter-spacing: 0.01em;
+        pointer-events: none; user-select: none;
+        display: none;
+      }
+      #__nav .center span { color: #555; }
 
       #__nav .right {
         display: flex; align-items: center; gap: 2px;
@@ -7026,6 +7035,7 @@
     nav.id = "__nav";
     nav.innerHTML = `
       <a class="logo" href="/" id="__logo">solo central</a>
+      <div class="center" id="__nav-users">active users: <span id="__nav-users-count"></span></div>
       <div class="right">
         <a class="nav-item" id="nav-games"  href="#games"><i class="fa-solid fa-gamepad"></i> Games</a>
         <a class="nav-item" id="nav-apps"   href="#apps"><i class="fa-solid fa-grip"></i> Apps</a>
@@ -7033,6 +7043,14 @@
       </div>
     `;
     document.body.appendChild(nav);
+
+    fetch("https://api.qatual.com/users/solocentral").then(r => r.json()).then(d => {
+      const count = d.activeUsers;
+      if (typeof count === "number") {
+        document.getElementById("__nav-users-count").textContent = count.toLocaleString();
+        document.getElementById("__nav-users").style.display = "block";
+      }
+    }).catch(() => {});
 
     const home = document.createElement("div");
     home.id = "__home";
