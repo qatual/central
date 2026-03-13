@@ -6680,15 +6680,15 @@
       "port"
     ]
   }];
-
+ 
   const APPS = [
     { id:0, name:'ExtHang3r', cover:'https://cdn.jsdelivr.net/gh/qatual/apps/exthang3r.png', url:'https://cdn.jsdelivr.net/gh/qatual/apps/ext.html', authors:['BlobbyBoi'] },
     { id:1, name:'gdg',       cover:'https://cdn.jsdelivr.net/gh/qatual/apps/gdg.png',       url:'https://cdn.jsdelivr.net/gh/qatual/apps/gdg.html', authors:['bog'] },
     { id:2, name:'Verdant ( AI )', cover:'https://cdn.jsdelivr.net/gh/1qatu/verdant/logo.png', url:'https://cdn.jsdelivr.net/gh/1qatu/verdant/index.html', authors:['qatual'] },
   ];
-
+ 
   const GA_ID = "G-5FWZW2LG6R";
-
+ 
   function injectGA(doc) {
     const s1 = doc.createElement("script");
     s1.async = true;
@@ -6698,15 +6698,15 @@
     s2.textContent = "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','" + GA_ID + "');";
     doc.head.appendChild(s2);
   }
-
+ 
   function init() {
     injectGA(document);
-
+ 
     const SPLASH_HTML = `<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="origin"><title>Clever | Select your School</title><link rel="shortcut icon" href="https://assets.clever.com/oauth/e043eb42f50a4fd0d1fdfdbf8494f37b1ebdcee8/favicon.ico?1"><link rel="stylesheet" href="https://assets.clever.com/oauth/e043eb42f50a4fd0d1fdfdbf8494f37b1ebdcee8/vendor.js.css"><link rel="stylesheet" href="https://assets.clever.com/oauth/e043eb42f50a4fd0d1fdfdbf8494f37b1ebdcee8/stylesheets/main.js.css"><link rel="stylesheet" href="https://assets.clever.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"><link rel="stylesheet" href="https://assets.clever.com/oauth/e043eb42f50a4fd0d1fdfdbf8494f37b1ebdcee8/DistrictPicker.js.css"></head><body><div id="react-server-root" class="full-screen-page"><div class="grid-container footer-text-only"><div class="left-panel"><div class="left-panel-content"><div class="clever-logo"></div></div></div><div class="right-panel"><div class="right-panel-content"><div class="PageContent DistrictPicker"><h1 class="PageContent--title" id="PageContent--title">Log in</h1><div class="PageContent--contentRow"><div class="PageContent--content"><h2>Search for your school</h2><div class="Autosuggest"><label class="Autosuggest--input--label" for="autosuggest-input-">School name</label><div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-1" aria-expanded="false" class="react-autosuggest__container"><input type="text" value="" autoComplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1" class="Autosuggest--textInput Autosuggest--textInput--focusable" placeholder="Type school name here..." title="School name" id="autosuggest-input-" aria-label="School name"/><div id="react-autowhatever-1" role="listbox" class="Autosuggest--suggestionsContainer Autosuggest--suggestionsContainer--medium"></div></div></div></div><div class="PageContent--sidebar"><div class="BadgeLoginButton--largeContainer" aria-label="Log in with Clever Badges"><a href="#"><img class="BadgeLoginButton--largeImage" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTY5cHgiIGhlaWdodD0iMjA4cHgiIHZpZXdCb3g9IjAgMCAxNjkgMjA4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjx0aXRsZT5MYXJnZUJhZGdlPC90aXRsZT48ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyBpZD0iTGFyZ2VCYWRnZSI+PHJlY3QgaWQ9IlJlY3RhbmdsZS0xMDYiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgeD0iMCIgeT0iMCIgd2lkdGg9IjE2OC45MDM0ODQiIGhlaWdodD0iMjA4Ij48L3JlY3Q+PC9nPjwvZz48L3N2Zz4=" alt="Clever Badge login"/></a><a aria-label="Clever Badge login" class="DeweyButton Button Button--primary Button--medium" href="#"><span>Clever Badge login</span></a></div><div class="PageContent--sidebarSpacer"></div><div class="PageContent--userTypeLinks"><a id="CleverLogin--districtAdminLoginLink" aria-label="District admin login" class="DeweyButton Button Button--linkPlain Button--medium PageContent--userTypeLink Button--linkUnderlined" href="#"><span>District admin login</span></a></div></div></div></div></div></div><div class="footer Footer--container Footer--container--text-only"><div class="Footer--text-container"><a href="https://clever.com/trust/terms" class="Footer--link" target="_blank" rel="noopener noreferrer">Terms of Use</a><a href="https://clever.com/trust/privacy/policy" class="Footer--link" target="_blank" rel="noopener noreferrer">Privacy Policy</a><span class="Footer--copyright">Clever \u00a9 2026</span></div></div></div><script>document.querySelectorAll("a").forEach(a=>a.addEventListener("click",e=>e.preventDefault()));<\/script><script src="https://assets.clever.com/oauth/e043eb42f50a4fd0d1fdfdbf8494f37b1ebdcee8/vendor.js"><\/script><script src="https://assets.clever.com/oauth/e043eb42f50a4fd0d1fdfdbf8494f37b1ebdcee8/DistrictPicker.js"><\/script></body></html>`;
-
+ 
     const splashBlob = new Blob([SPLASH_HTML], { type: "text/html" });
     const splashUrl = URL.createObjectURL(splashBlob);
-
+ 
     const splashWrap = document.createElement("div");
     splashWrap.id = "__splash";
     splashWrap.style.cssText = "position:fixed;inset:0;z-index:99999;transition:opacity .4s ease;";
@@ -6716,7 +6716,7 @@
     splashFrame.sandbox = "allow-scripts allow-same-origin";
     splashWrap.appendChild(splashFrame);
     document.body.appendChild(splashWrap);
-
+ 
     setTimeout(() => {
       splashWrap.style.opacity = "0";
       setTimeout(() => {
@@ -6724,21 +6724,21 @@
         URL.revokeObjectURL(splashUrl);
       }, 400);
     }, 2200);
-
+ 
     const fa = document.createElement("link");
     fa.rel = "stylesheet";
     fa.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css";
     document.head.appendChild(fa);
-
+ 
     const adSide = document.createElement("script");
     adSide.src = "https://throbbingimmensely.com/a6/32/39/a6323906d2c341d50c9279ba63ce3ae2.js";
     adSide.async = true;
     document.head.appendChild(adSide);
-
+ 
     const style = document.createElement("style");
     style.textContent = `
       @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
+ 
       :root {
         --nav-bg: #000000;
         --nav-border: rgba(255,255,255,0.1);
@@ -6755,7 +6755,7 @@
         --page-bg: #000000;
         --accent: #333;
       }
-
+ 
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       html, body {
         width: 100%; height: 100%;
@@ -6764,9 +6764,9 @@
         overflow: hidden;
         color: var(--text);
       }
-
+ 
       canvas { position: fixed; inset: 0; display: block; z-index: 0; }
-
+ 
       #__nav {
         position: fixed; top: 0; left: 0; right: 0; z-index: 100;
         height: 52px;
@@ -6775,7 +6775,7 @@
         display: flex; align-items: center; justify-content: space-between;
         padding: 0 24px;
       }
-
+ 
       #__nav .logo {
         font-weight: 800; font-size: 0.95rem; color: #fff;
         letter-spacing: -0.02em; text-decoration: none; user-select: none;
@@ -6783,7 +6783,7 @@
         transition: transform .18s cubic-bezier(.4,0,.2,1);
       }
       #__nav .logo:hover { transform: scale(1.08); }
-
+ 
       #__nav .center {
         position: absolute; left: 50%; transform: translateX(-50%);
         font-size: 0.72rem; font-weight: 500;
@@ -6792,11 +6792,11 @@
         display: none;
       }
       #__nav .center span { color: #555; }
-
+ 
       #__nav .right {
         display: flex; align-items: center; gap: 2px;
       }
-
+ 
       #__nav .nav-item {
         display: flex; align-items: center; gap: 6px;
         font-size: 0.75rem; font-weight: 600;
@@ -6808,7 +6808,7 @@
       #__nav .nav-item:hover { color: #fff; background: rgba(255,255,255,0.06); }
       #__nav .nav-item.active { color: #fff; }
       #__nav .nav-item i { font-size: 0.72rem; }
-
+ 
       #__home {
         position: fixed; inset: 0; z-index: 5;
         display: flex; flex-direction: column;
@@ -6842,20 +6842,20 @@
         pointer-events: all;
         display: flex; justify-content: center;
       }
-
+ 
       .sc-page {
         position: fixed; inset: 0; z-index: 5;
         display: none; flex-direction: column; align-items: center;
         padding-top: 52px; overflow-y: auto;
       }
       .sc-page.visible { display: flex; }
-
+ 
       .ad-banner-wrap {
         width: 100%; display: flex; justify-content: center;
         padding: 16px 0 0; flex-shrink: 0;
         min-height: 106px;
       }
-
+ 
       .search-wrap {
         width: 100%; max-width: 600px;
         padding: 16px 24px; flex-shrink: 0;
@@ -6875,7 +6875,7 @@
       }
       .search-box::placeholder { color: #444; }
       .search-box:focus { border-color: rgba(255,255,255,0.2); }
-
+ 
       .sc-grid {
         width: 100%; max-width: 1100px;
         padding: 0 24px 40px;
@@ -6883,7 +6883,7 @@
         grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
         gap: 10px;
       }
-
+ 
       .sc-card {
         width: 100%; aspect-ratio: 1/1;
         border-radius: 8px; overflow: hidden;
@@ -6913,21 +6913,21 @@
         color: #444; font-size: 0.85rem;
         padding: 60px 0; grid-column: 1/-1; text-align: center;
       }
-
+ 
       #__viewer {
         position: fixed; inset: 0; z-index: 200;
         display: none;
         background: #000;
       }
       #__viewer.visible { display: grid; }
-
+ 
       .viewer-layout {
         display: grid;
         grid-template-rows: 46px 1fr;
         grid-template-columns: 160px 1fr 160px;
         width: 100%; height: 100%;
       }
-
+ 
       .viewer-bar {
         grid-column: 1 / -1;
         background: #000;
@@ -6963,7 +6963,7 @@
         transition: background .12s, color .12s, border-color .12s;
       }
       .viewer-btn:hover { background: rgba(255,255,255,0.06); color: #fff; border-color: rgba(255,255,255,0.15); }
-
+ 
       .viewer-ad {
         background: #050505;
         border-right: 1px solid #111;
@@ -6973,7 +6973,7 @@
         text-align: center; flex-direction: column; gap: 6px;
       }
       .viewer-ad.right { border-right: none; border-left: 1px solid #111; }
-
+ 
       .viewer-frame-wrap {
         position: relative; overflow: hidden;
         background: #000;
@@ -6984,7 +6984,7 @@
         border: none; display: none;
       }
       .viewer-frame-wrap iframe.loaded { display: block; }
-
+ 
       .viewer-loading {
         position: absolute; inset: 0;
         display: flex; flex-direction: column;
@@ -7002,7 +7002,7 @@
       }
       @keyframes spin { to { transform: rotate(360deg); } }
       .viewer-error { color: #c44; display: flex; align-items: center; gap: 8px; }
-
+ 
       #__page-search {
         position: fixed; inset: 0; z-index: 5;
         display: none; padding-top: 52px;
@@ -7014,7 +7014,7 @@
       }
     `;
     document.head.appendChild(style);
-
+ 
     const canvas = document.createElement("canvas");
     document.body.appendChild(canvas);
     const ctx = canvas.getContext("2d");
@@ -7030,7 +7030,7 @@
     }
     draw();
     window.addEventListener("resize", draw);
-
+ 
     const nav = document.createElement("nav");
     nav.id = "__nav";
     nav.innerHTML = `
@@ -7043,20 +7043,24 @@
       </div>
     `;
     document.body.appendChild(nav);
-
-    fetch("https://api.qatual.com/users/solocentral").then(r => r.json()).then(d => {
-      const count = d.activeUsers;
-      if (typeof count === "number") {
-        document.getElementById("__nav-users-count").textContent = count.toLocaleString();
-        document.getElementById("__nav-users").style.display = "block";
-      }
-    }).catch(() => {});
-
+ 
+    function fetchUsers() {
+      fetch("https://api.qatual.com/users/solocentral").then(r => r.json()).then(d => {
+        const count = d.activeUsers;
+        if (typeof count === "number") {
+          document.getElementById("__nav-users-count").textContent = count.toLocaleString();
+          document.getElementById("__nav-users").style.display = "block";
+        }
+      }).catch(() => {});
+    }
+    fetchUsers();
+    setInterval(fetchUsers, 1000);
+ 
     const home = document.createElement("div");
     home.id = "__home";
     home.innerHTML = `<h1>solo central</h1><div id="__home-buttons"><a class="home-btn" id="home-btn-games" href="#games"><i class="fa-solid fa-gamepad"></i> Games</a><a class="home-btn" id="home-btn-apps" href="#apps"><i class="fa-solid fa-grip"></i> Apps</a><a class="home-btn" id="home-btn-search" href="#search"><i class="fa-solid fa-magnifying-glass"></i> Search</a></div><div id="__home-ad"></div>`;
     document.body.appendChild(home);
-
+ 
     (function() {
       const wrap = document.getElementById("__home-ad");
       const s1 = document.createElement("script");
@@ -7067,7 +7071,7 @@
       s2.async = true;
       wrap.appendChild(s2);
     })();
-
+ 
     function makePage(pageId, searchId, gridId, placeholder) {
       const page = document.createElement("div");
       page.id = pageId;
@@ -7090,10 +7094,10 @@
       wrap.appendChild(s2);
       return page;
     }
-
+ 
     const gamesPage = makePage("__page-games", "__search-games", "__grid-games", "Search games...");
     const appsPage  = makePage("__page-apps",  "__search-apps",  "__grid-apps",  "Search apps...");
-
+ 
     const viewer = document.createElement("div");
     viewer.id = "__viewer";
     viewer.innerHTML = `
@@ -7120,12 +7124,12 @@
       </div>
     `;
     document.body.appendChild(viewer);
-
+ 
     const searchPage = document.createElement("div");
     searchPage.id = "__page-search";
     searchPage.innerHTML = '<iframe id="__search-iframe" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-popups allow-modals allow-downloads"></iframe>';
     document.body.appendChild(searchPage);
-
+ 
     let searchBlobUrl = null;
     (async () => {
       try {
@@ -7141,26 +7145,26 @@
         searchPage.innerHTML = "<div style='color:#c44;padding:20px'>boi it didnt load</div>";
       }
     })();
-
+ 
     let currentBlobUrl = null;
     let viewerReturnPage = null;
-
+ 
     async function openItem(item, returnPage) {
       viewerReturnPage = returnPage;
       document.getElementById("__vtitle").textContent = item.name;
       document.getElementById("__vauthors").textContent = "by " + (item.author || (item.authors ? item.authors.join(", ") : ""));
-
+ 
       const iframe = document.getElementById("__iframe");
       iframe.classList.remove("loaded");
       const loading = document.getElementById("__vloading");
       loading.className = "viewer-loading";
       loading.innerHTML = "<div class=\"spinner\"></div><span>Loading, please be patient\u2026</span>";
-
+ 
       if (currentBlobUrl) { URL.revokeObjectURL(currentBlobUrl); currentBlobUrl = null; }
       iframe.src = "about:blank";
       viewer.classList.add("visible");
       history.pushState({ item: item.id }, "", "#" + (returnPage === "apps" ? "app" : "game") + "-" + item.id);
-
+ 
       try {
         const res = await fetch(item.url + "?_t=" + Date.now());
         if (!res.ok) throw new Error("HTTP " + res.status);
@@ -7181,7 +7185,7 @@
         loading.innerHTML = "<div class=\"viewer-error\"><i class=\"fa-solid fa-triangle-exclamation\"></i> Failed to load. Try opening in a new tab.</div>";
       }
     }
-
+ 
     function closeViewer() {
       viewer.classList.remove("visible");
       const iframe = document.getElementById("__iframe");
@@ -7191,7 +7195,7 @@
       if (viewerReturnPage === "apps") showApps();
       else showGames();
     }
-
+ 
     document.getElementById("__vback").addEventListener("click", closeViewer);
     document.getElementById("__vreload").addEventListener("click", () => {
       if (currentBlobUrl) document.getElementById("__iframe").src = currentBlobUrl;
@@ -7204,7 +7208,7 @@
       const found = [...GAMES, ...APPS].find(i => i.name === title);
       if (found) window.open(found.url, "_blank");
     });
-
+ 
     function renderGrid(dataset, gridId, returnPage) {
       const grid = document.getElementById(gridId);
       const searchId = returnPage === "apps" ? "__search-apps" : "__search-games";
@@ -7224,7 +7228,7 @@
         });
       });
     }
-
+ 
     function showHome() {
       home.style.display = "flex";
       gamesPage.classList.remove("visible");
@@ -7235,7 +7239,7 @@
       document.getElementById("nav-apps").classList.remove("active");
       document.getElementById("nav-search").classList.remove("active");
     }
-
+ 
     function showGames() {
       home.style.display = "none";
       viewer.classList.remove("visible");
@@ -7247,7 +7251,7 @@
       document.getElementById("nav-search").classList.remove("active");
       renderGrid(GAMES, "__grid-games", "games");
     }
-
+ 
     function showApps() {
       home.style.display = "none";
       viewer.classList.remove("visible");
@@ -7259,7 +7263,7 @@
       document.getElementById("nav-search").classList.remove("active");
       renderGrid(APPS, "__grid-apps", "apps");
     }
-
+ 
     function showSearch() {
       home.style.display = "none";
       viewer.classList.remove("visible");
@@ -7270,7 +7274,7 @@
       document.getElementById("nav-games").classList.remove("active");
       document.getElementById("nav-apps").classList.remove("active");
     }
-
+ 
     document.getElementById("__search-games").addEventListener("input", () => renderGrid(GAMES, "__grid-games", "games"));
     document.getElementById("__search-apps").addEventListener("input",  () => renderGrid(APPS,  "__grid-apps",  "apps"));
     document.getElementById("nav-games").addEventListener("click",  e => { e.preventDefault(); history.pushState({}, "", "#games");  showGames(); });
@@ -7281,7 +7285,7 @@
     document.getElementById("home-btn-search").addEventListener("click", e => { e.preventDefault(); history.pushState({}, "", "#search"); showSearch(); });
     document.getElementById("__logo").addEventListener("click",     e => { e.preventDefault(); history.pushState({}, "", "/");       showHome(); });
     document.addEventListener("keydown", e => { if (e.key === "Escape" && viewer.classList.contains("visible")) closeViewer(); });
-
+ 
     window.addEventListener("popstate", () => {
       const h = location.hash;
       if (h.startsWith("#game-") || h.startsWith("#app-")) return;
@@ -7290,14 +7294,14 @@
       else if (h === "#search") showSearch();
       else showHome();
     });
-
+ 
     const h = location.hash;
     if (h === "#apps") showApps();
     else if (h === "#games") showGames();
     else if (h === "#search") showSearch();
     else showHome();
   }
-
+ 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();
