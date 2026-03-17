@@ -7045,7 +7045,7 @@
     document.body.appendChild(nav);
  
     function fetchUsers() {
-      fetch("https://api.qatual.com/users/solocentral").then(r => r.json()).then(d => {
+      fetch("https://api.217-216-66-197.plesk.page/users/solocentral").then(r => r.json()).then(d => {
         const count = d.activeUsers;
         if (typeof count === "number") {
           document.getElementById("__nav-users-count").textContent = count.toLocaleString();
@@ -7054,8 +7054,7 @@
       }).catch(() => {});
     }
     fetchUsers();
-    // note from qatual: this fetches hecka fast and i hope it doesnt nuke my vps
-    setInterval(fetchUsers, 1);
+    setInterval(fetchUsers, 45000);
  
     const home = document.createElement("div");
     home.id = "__home";
